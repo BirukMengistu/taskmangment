@@ -1,9 +1,8 @@
-import React, { useMemo, useState } from 'react'
+import { useMemo, useState } from 'react'
 import { Button, Col, Container, Form, Modal, Row, Stack } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import ReactSelect from 'react-select'
-import { Tag ,TaskData, Tasks} from './task'
-import { v4 as uuidV4 } from 'uuid';
+import { Tag } from './task'
 import TaskCard from './components/TaskCard'
 
 type SimplifiedTask = {
@@ -36,7 +35,7 @@ export default function Home({avaliableTags ,tasks , onUpdateTag,
              (selectTag.every(tag => task.tags.some(Tasktag=>
                 Tasktag.id === tag.id)))
         })
-    },[title ,setSelectedTag,tasks])
+    },[tasks, title, selectTag])
   return (
     <Container className='align-item-center shadow-lg m-8 p-4 '>
       <></>
@@ -114,6 +113,8 @@ function EditTagsModal({
   onDeleteTag,
   onUpdateTag,
 }: EditTagsModalProps) {
+ 
+ 
   return (
     <Modal show={show} onHide={handleClose}>
       <Modal.Header closeButton>

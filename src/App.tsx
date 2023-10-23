@@ -2,8 +2,8 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import { Container } from 'react-bootstrap'
 import { Route, Routes,Navigate } from 'react-router-dom'
 import Newtask from './components/Newtask'
-import { TaskData,Tag, Tasks, RawTask } from './task'
-import { useMemo, useState  } from 'react'
+import { TaskData,Tag,  RawTask } from './task'
+import { useMemo } from 'react'
 import { useLocalStorage } from './components/useLocalStorage'
 import {v4 as uuidV4} from 'uuid'
 import Home from './Home'
@@ -13,9 +13,8 @@ import Edittask from './components/EditTask'
 
 function App() {
   
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  
   const [tasks, setTasks] =useLocalStorage<RawTask[]>('task',[])
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [tags, setTags] =useLocalStorage<Tag[]>('tags',[])
  
  const TasksWithTag = useMemo(()=>{
